@@ -1,9 +1,21 @@
 package fr.it_akademy.poker;
 
+import fr.it_akademy.business.Couleur;
+
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		String[] couleurs = { "Trèfle", "Pique", "Coeur", "Carreaux" };
+		String[] valeurs = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Dame", "Roi" };
+		
+		ArrayList<Carte> jeux = new ArrayList<>();
+		
+		for (String couleur : couleurs) {
+			for (String valeur: valeurs) {
+				jeux.add(new Carte(valeur, couleur));
+			}
+		}
 
 	}
 

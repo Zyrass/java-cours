@@ -1,0 +1,13 @@
+package fr.it_akademy.poker;
+
+import fr.it_akademy.business.Couleur;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String[] couleurs = {"Trèfle", "Pique", "Coeur", "Carreaux"};
+
+	}
+
+}
