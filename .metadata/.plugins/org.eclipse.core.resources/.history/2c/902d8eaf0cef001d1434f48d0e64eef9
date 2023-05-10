@@ -1,0 +1,14 @@
+package fr.it_akademy.hello_world;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String name = "Alain";
+		
+		System.out.println("Bonjour la famille" + name);
+
+	}
+
+}

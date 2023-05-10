@@ -1,0 +1,39 @@
+package fr.it_akademy.greeting;
+
+import java.util.Scanner;
+
+public class Person {
+	
+	private String firstName;
+	private String lastName;
+	private int year;
+	
+	// GETTERS
+	public String getFirstName() {
+		return this.firstName;
+	}
+	
+	public String getLastName() {
+		return this.lastName;
+	}
+	
+	public int getYear() {
+		return this.year;
+	}
+	
+	// SETTERS
+	public void setFirstName(String firstName) {
+		this.firstName = firstName.trim();
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName.toUpperCase();
+	}
+	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+
+
+}

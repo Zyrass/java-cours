@@ -1,0 +1,27 @@
+package fr.it_akademy.fr.devinez_un_nombre;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class App {
+	
+	static // Attributs
+	int number;
+
+	public static void main(String[] args) {
+
+		Random nr = new Random();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Devinne le nombre entre 1 et 100");
+		
+		int userNumber = sc.nextInt();
+		int numberRandom = nr.nextInt(100);
+		
+		System.out.println("USER : " + userNumber);
+		System.out.println("RANDOM : " + numberRandom);
+		
+	}
+
+
+}

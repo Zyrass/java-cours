@@ -1,0 +1,42 @@
+package fr.it_akademy.fr.devinez_un_nombre;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Random nr = new Random();
+		
+		int tries = 1;
+		
+		int userNumber = 0;
+		int numberRandom = nr.nextInt(100) + 1;
+		
+		while ( userNumber != numberRandom ) {
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println(" - Essai n° " + tries);
+			System.out.print(" - Devinne le nombre entre 1 et 100 : ");
+			
+			userNumber = sc.nextInt();
+			
+			
+			if ( userNumber == numberRandom ) {
+				System.out.println(" -------------- Bravo le nombre à devinez était bien " + numberRandom + " et tu as trouvé en " + tries + " coups.\n");
+			} else if ( userNumber < numberRandom ) {
+				System.out.println("\n" + userNumber + " est trop petit\n");
+				tries++;
+			} else if ( userNumber > numberRandom ) {
+				System.out.println("\n" + userNumber + " est trop grand\n");
+				tries++;
+			}
+		}
+		
+		System.out.println("USER : " + userNumber);
+		System.out.println("RANDOM : " + numberRandom);
+		
+	}
+
+}

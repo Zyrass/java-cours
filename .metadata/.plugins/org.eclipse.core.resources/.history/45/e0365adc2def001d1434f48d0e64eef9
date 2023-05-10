@@ -1,0 +1,59 @@
+package fr.it_akademy.fr.horloge_de_berlin;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Donne moi l'heure qu'il est : ");
+		int hour = sc.nextInt();
+		int validHour = hour <= 0 || hour > 23 ? 0 : hour;
+		
+		int nbHour5 = hour / 5;
+		int nbHour1 = hour % 5;
+		
+		System.out.print("Donne moi les minutes : ");
+		int minutes = sc.nextInt();
+		int validMinutes = minutes <= 0 || minutes > 59 ? 0 : minutes;
+		
+		int nbMinutes5 = minutes / 5;
+		int nbMinutes1 = minutes % 5;
+		
+		System.out.print("Donne moi les secondes : ");
+		int seconds = sc.nextInt();
+		int validSeconds = seconds <= 0 || seconds > 59 ? 0 : seconds;
+		
+		int nbSeconds5 = seconds / 5;
+		int nbSeconds1 = seconds % 1;
+		
+		
+		System.out.print("\nIl est " + validHour + "h" + validMinutes + ":" + validSeconds + "\n");
+		
+		sc.close();
+		
+		System.out.println("\n --------- HORLOGE DE BERLIN ----------\n");
+		
+
+	}
+	
+	public static String getHorlogeBerlinHour(int getHour) {
+		
+		if ( getHour == 0 ) {
+			return "[ ] [ ] [ ] [ ]";
+		} else if ( getHour == 1 ) {
+			return "[X] [ ] [ ] [ ]";
+		} else if ( getHour == 2 ) {
+			return "[X] [X] [ ] [ ]";
+		} else if ( getHour == 3 ) {
+			return "[X] [X] [X] [ ]";
+		} else if ( getHour == 4 ) {
+			return "[X] [X] [X] [X]";
+		}
+		
+		return null;
+	}
+
+}

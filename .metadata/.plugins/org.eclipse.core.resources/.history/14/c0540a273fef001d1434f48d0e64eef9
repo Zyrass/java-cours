@@ -1,0 +1,137 @@
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class Ville {
+
+    /**
+     * Default constructor
+     */
+    public Ville() {
+    }
+
+    /**
+     * 
+     */
+    private Long id;
+
+    /**
+     * 
+     */
+    private String nom;
+
+    /**
+     * 
+     */
+    private String codePostal;
+
+    /**
+     * 
+     */
+    private double lattitude;
+
+    /**
+     * 
+     */
+    private double longitude;
+
+    /**
+     * 
+     */
+    private double altitude;
+
+
+
+    /**
+     * @return
+     */
+    public Long getId() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param value
+     */
+    public void setId(Long value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public String getNom() {
+        // TODO implement here
+        return "";
+    }
+
+    /**
+     * @param value
+     */
+    public void setNom(String value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public String getCodePostal() {
+        // TODO implement here
+        return "";
+    }
+
+    /**
+     * @param value
+     */
+    public void setCodePostal(String value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public double getLattitude() {
+        // TODO implement here
+        return 0.0d;
+    }
+
+    /**
+     * @param value
+     */
+    public void setLattitude(double value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public double getLongitude() {
+        // TODO implement here
+        return 0.0d;
+    }
+
+    /**
+     * @param value
+     */
+    public void setLongitude(double value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public double getAltitude() {
+        // TODO implement here
+        return 0.0d;
+    }
+
+    /**
+     * @param value
+     */
+    public void setAltitude(double value) {
+        // TODO implement here
+    }
+
+}

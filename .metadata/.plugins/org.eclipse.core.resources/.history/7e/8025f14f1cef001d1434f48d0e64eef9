@@ -1,0 +1,10 @@
+package fr.it_akademy.fr.devinez_un_nombre;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

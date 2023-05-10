@@ -1,0 +1,39 @@
+// Classe Person avec trois attributs privés : firstName, lastName et year
+public class Person {
+    
+    private String firstName;
+    private String lastName;
+    private int year;
+    
+    // Méthode pour obtenir le prénom
+    public String getFirstName() {
+        return this.firstName;
+    }
+    
+    // Méthode pour obtenir le nom de famille
+    public String getLastName() {
+        return this.lastName;
+    }
+    
+    // Méthode pour obtenir l'âge
+    public int getYear() {
+        return this.year;
+    }
+    
+    // Méthode pour définir le prénom
+    // La méthode trim() est utilisée pour supprimer les espaces au début et à la fin de la chaîne
+    public void setFirstName(String firstName) {
+        this.firstName = firstName.trim();
+    }
+    
+    // Méthode pour définir le nom de famille
+    // La méthode toUpperCase() est utilisée pour convertir toutes les lettres en majuscules
+    public void setLastName(String lastName) {
+        this.lastName = lastName.toUpperCase();
+    }
+    
+    // Méthode pour définir l'âge
+    public void setYear(int year) {
+        this.year = year;
+    }
+}

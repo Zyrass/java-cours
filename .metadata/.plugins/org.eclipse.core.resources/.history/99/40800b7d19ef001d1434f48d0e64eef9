@@ -1,0 +1,42 @@
+package fr.it_akademy.greeting;
+
+import java.util.Scanner;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Person person1 = new Person();
+		
+		askFirstname(person1);
+		askLastName(person1);
+		askYear(person1);
+		
+		System.out.println("\n");
+		System.out.println("Bonjour " + person1.getFirstName() + " " + person1.getLastName());
+		System.out.println("Tu as " + person1.getYear() + " ans.");
+
+	}
+	
+	public static void askFirstname(Person person) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton prénom ? ");
+		person.setFirstName(sc.nextLine());
+		sc.close();
+	}
+	
+	public static void askLastName(Person person) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton nom de famille ? ");
+		person.setLastName(sc.nextLine());
+		sc.close();
+	}
+	
+	public static void askYear(Person person) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton âge ? ");
+		person.setYear(sc.nextInt());
+		sc.close();
+	}
+
+}

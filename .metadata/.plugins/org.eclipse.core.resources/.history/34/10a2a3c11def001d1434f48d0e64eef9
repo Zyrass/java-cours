@@ -1,0 +1,16 @@
+package fr.it_akademy.fr.devinez_un_nombre;
+
+import java.util.Random;
+
+public class App {
+	
+	static // Attributs
+	int number;
+
+	public static void main(String[] args) {
+
+		Random randomNumber = new Random();
+	}
+
+
+}

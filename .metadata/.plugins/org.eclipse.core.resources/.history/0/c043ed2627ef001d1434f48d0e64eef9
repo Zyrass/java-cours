@@ -1,0 +1,13 @@
+package fr.it_akademy.fr.horloge_de_berlin;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+	}
+
+}

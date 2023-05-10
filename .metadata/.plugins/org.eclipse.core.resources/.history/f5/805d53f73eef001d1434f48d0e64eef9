@@ -1,0 +1,68 @@
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class Carte {
+
+    /**
+     * Default constructor
+     */
+    public Carte() {
+    }
+
+    /**
+     * 
+     */
+    private String nom;
+
+    /**
+     * 
+     */
+    private int valeur;
+
+
+
+
+    /**
+     * 
+     */
+    private Set<Couleur> couleur;
+
+    /**
+     * 
+     */
+    private Couleur couleur;
+
+    /**
+     * @return
+     */
+    public String getNom() {
+        // TODO implement here
+        return "";
+    }
+
+    /**
+     * @param value
+     */
+    public void setNom(String value) {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public int getValeur() {
+        // TODO implement here
+        return 0;
+    }
+
+    /**
+     * @param value
+     */
+    public void setValeur(int value) {
+        // TODO implement here
+    }
+
+}

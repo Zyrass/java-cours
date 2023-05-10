@@ -1,0 +1,19 @@
+package fr.it_akademy.greeting;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Person myNewApp = new Person();
+		
+		myNewApp.askFirstname();
+		myNewApp.askLastName();
+		myNewApp.askYear();
+		
+		System.out.println("\n");
+		System.out.println("Bonjour " + myNewApp.getFirstName() + " " + myNewApp.getLastName());
+		System.out.println("Tu as " + myNewApp.getYear() + " ans.");
+
+	}
+
+}

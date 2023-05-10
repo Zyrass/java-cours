@@ -1,0 +1,72 @@
+package fr.it_akademy.greeting;
+
+import java.util.Scanner;
+
+public class App {
+	
+	private String firstName;
+	private String lastName;
+	private int year;
+	
+	public static void main(String[] args) {
+		
+		App myNewApp = new App();
+		
+		myNewApp.setFirstName("Tarek");
+		myNewApp.setLastName("Taguine");
+		myNewApp.setYear(28);
+		
+		System.out.println("\n");
+		System.out.println("Bonjour " + myNewApp.getFirstName() + " " + myNewApp.getLastName());
+		System.out.println("Tu as " + myNewApp.getYear() + " ans.");
+
+	}
+	
+	// GETTERS
+	public String getFirstName() {
+		return this.firstName;
+	}
+	
+	public String getLastName() {
+		return this.lastName;
+	}
+	
+	public int getYear() {
+		return this.year;
+	}
+	
+	// SETTERS
+	public void setFirstName(String firstName) {
+		this.firstName = firstName.trim();
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName.toUpperCase();
+	}
+	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	public void askFirstname() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton prénom ? ");
+		this.setFirstName(sc.nextLine());
+		sc.close();
+	}
+	
+	public void askLastName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton nom de famille ? ");
+		this.setLastName(sc.nextLine());
+		sc.close();
+	}
+	
+	public void askYear() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nQuel est ton âge ? ");
+		this.setYear(sc.nextInt());
+		sc.close();
+	}
+
+}

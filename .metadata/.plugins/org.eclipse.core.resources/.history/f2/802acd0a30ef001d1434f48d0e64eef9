@@ -1,0 +1,105 @@
+package fr.it_akademy.fr.horloge_de_berlin;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Donne moi l'heure qu'il est : ");
+		int hour = sc.nextInt();
+		int validHour = hour <= 0 || hour > 23 ? 0 : hour;
+		
+		int nbHour5 = hour / 5;
+		int nbHour1 = hour % 5;
+		
+		System.out.print("Donne moi les minutes : ");
+		int minutes = sc.nextInt();
+		int validMinutes = minutes <= 0 || minutes > 59 ? 0 : minutes;
+		
+		int nbMinutes5 = minutes / 5;
+		int nbMinutes1 = minutes % 5;
+		
+		
+		System.out.print("\nIl est " + validHour + "h" + validMinutes + "\n");
+		
+		sc.close();
+		
+		System.out.println("\n --------- HORLOGE DE BERLIN ----------\n");
+		
+		System.out.print(getHorlogeBerlinHour(nbHour5));
+		System.out.print(getHorlogeBerlinHour(nbHour1));
+		System.out.print(getHorlogeBerlinMinutes(nbMinutes5));
+		System.out.print(getHorlogeBerlinMinute(nbMinutes1));
+
+	}
+	
+	public static String getHorlogeBerlinHour(int getHour) {
+		
+		if ( getHour == 0 ) {
+			return "[ ] [ ] [ ] [ ]\n";
+		} else if ( getHour == 1 ) {
+			return "[X] [ ] [ ] [ ]\n";
+		} else if ( getHour == 2 ) {
+			return "[X] [X] [ ] [ ]\n";
+		} else if ( getHour == 3 ) {
+			return "[X] [X] [X] [ ]\n";
+		} else if ( getHour == 4 ) {
+			return "[X] [X] [X] [X]\n";
+		}
+		
+		return null;
+	}
+	
+	
+	public static String getHorlogeBerlinMinutes(int getMinutes) {
+		
+		if ( getMinutes == 0 ) {
+			return "[ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 1 ) {
+			return "[X] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 2 ) {
+			return "[X] [X] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 3 ) {
+			return "[X] [X] [X] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 4 ) {
+			return "[X] [X] [X] [X] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 5 ) {
+			return "[X] [X] [X] [X] [X] [ ] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 6 ) {
+			return "[X] [X] [X] [X] [X] [X] [ ] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 7 ) {
+			return "[X] [X] [X] [X] [X] [X] [X] [ ] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 8 ) {
+			return "[X] [X] [X] [X] [X] [X] [X] [X] [ ] [ ] [ ]\n";
+		} else if ( getMinutes == 9 ) {
+			return "[X] [X] [X] [X] [X] [X] [X] [X] [X] [ ] [ ]\n";
+		} else if ( getMinutes == 10 ) {
+			return "[X] [X] [X] [X] [X] [X] [X] [X] [X] [X] [ ]\n";
+		} else if ( getMinutes == 11 ) {
+			return "[X] [X] [X] [X] [X] [X] [X] [X] [X] [X] [X]\n";
+		}
+		
+		return null;
+	}
+	
+	public static String getHorlogeBerlinMinute(int getMinute) {
+		
+		if ( getMinute == 0 ) {
+			return "[ ] [ ] [ ] [ ]\n";
+		} else if ( getMinute == 1 ) {
+			return "[X] [ ] [ ] [ ]\n";
+		} else if ( getMinute == 2 ) {
+			return "[X] [X] [ ] [ ]\n";
+		} else if ( getMinute == 3 ) {
+			return "[X] [X] [X] [ ]\n";
+		} else if ( getMinute == 4 ) {
+			return "[X] [X] [X] [X]\n";
+		}
+		
+		return null;
+	}
+
+}

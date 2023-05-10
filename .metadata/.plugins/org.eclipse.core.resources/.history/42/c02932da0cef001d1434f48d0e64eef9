@@ -1,0 +1,17 @@
+package fr.it_akademy.hello_world;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String firstname = "Alain";
+		String lastname = "Guillon";
+		int year = 38;
+		
+		System.out.println("Bonjour " + firstname + " " + lastname);
+		System.out.println("Tu as " + year + " ans.");
+
+	}
+
+}

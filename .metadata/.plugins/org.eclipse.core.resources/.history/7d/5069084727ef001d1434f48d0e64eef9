@@ -1,0 +1,22 @@
+package fr.it_akademy.fr.horloge_de_berlin;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Donne moi l'heure qu'il est : ");
+		int hour = sc.nextInt();
+		
+		System.out.print("Donne moi les minutes : ");
+		int minutes = sc.nextInt();
+		
+		System.out.print("Donne moi les secondes : ");
+		int seconds = sc.nextInt();
+		
+	}
+
+}
