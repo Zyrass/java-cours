@@ -62,6 +62,21 @@ public class Ville {
 		this(nom);
 		this.codePostal = codePostal;
 	}
+	
+	/**
+	 * Surcharge du constructeur précédent
+	 * 
+	 * @param String nom
+	 * @param String codePostal
+	 * @param double latitude
+	 * @param double longitude
+	 */
+	public Ville(String nom, String codePostal, double latitude, double longitude) {
+		this(nom, codePostal);
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
 
 	/**
 	 * Surcharge du constructeur précédent

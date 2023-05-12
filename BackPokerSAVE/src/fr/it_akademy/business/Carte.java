@@ -19,7 +19,7 @@ public class Carte {
 	 * @param String nom
 	 * @param int    valeur
 	 */
-	public Carte(int valeur, Couleur couleur) {
+	//public Carte(int valeur, Couleur couleur) {
 
 		switch (valeur) {
 		case 1:

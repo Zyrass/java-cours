@@ -52,6 +52,8 @@ public class App {
 		System.out.println("USER : " + userNumber);
 		System.out.println("RANDOM TO GUESS : " + numberRandom);
 		
+		sc.close();
+		
 	}
 
 }

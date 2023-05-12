@@ -31,6 +31,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nQuel est ton prénom ? ");
         person.setFirstName(sc.nextLine());
+        
+        // Fermeture du scanner pour libérer les ressources
+        sc.close();
     }
     
     /**
@@ -41,6 +44,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nQuel est ton nom de famille ? ");
         person.setLastName(sc.nextLine());
+        
+        // Fermeture du scanner pour libérer les ressources
+        sc.close();
     }
     
     /**
