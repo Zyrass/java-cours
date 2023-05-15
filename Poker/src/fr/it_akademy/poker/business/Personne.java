@@ -13,9 +13,9 @@ public class Personne {
 
     // Attributs de la classe Personne
     private Long id; // Identifiant unique pour chaque personne
-    private String nom; // Nom de la personne
-    private String prenom; // Prénom de la personne
-    private LocalDate dateNaissance; // Date de naissance de la personne
+    protected String nom; // Nom de la personne
+    protected String prenom; // Prénom de la personne
+    protected LocalDate dateNaissance; // Date de naissance de la personne
 
     // Variable statique pour garder une trace du nombre d'instances de la classe Personne
     private static Long compteur = 0L;
@@ -25,6 +25,7 @@ public class Personne {
      * Il initialise l'identifiant unique pour chaque personne.
      */
 	public Personne() {
+		super();
 		this.id = ++compteur;
 	}
 

@@ -33,6 +33,7 @@ public class Joueur extends Personne {
 	 * solde. Il incrémente également le compteur de joueurs.
 	 */
 	public Joueur() {
+		super();
 		++compteur;
 	}
 
@@ -58,8 +59,9 @@ public class Joueur extends Personne {
 		this.solde = solde;
 	}
 
-	public Joueur(LocalDate dateDeNaissance, String pseudo, float solde) {
-		super(dateDeNaissance);
+	public Joueur(LocalDate dateNaissance, String pseudo, float solde) {
+		super();
+		this.dateNaissance = dateNaissance;
 		this.pseudo = pseudo;
 		this.solde = solde;
 	}

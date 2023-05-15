@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"fr.it_akademy.verbes_irreguliers.alain","l":"App"},{"p":"fr.it_akademy.business.alain","l":"NomColonneVerbesCSV"},{"p":"fr.it_akademy.business.alain","l":"Partie"},{"p":"fr.it_akademy.business.alain","l":"Question"},{"p":"fr.it_akademy.business.alain","l":"Verbe"}];updateSearchResults();

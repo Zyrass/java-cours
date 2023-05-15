@@ -1,8 +1,10 @@
-INDEX VERSION 1.132+C:\Users\alain\Documents\www\Java\It-akademy\java-cours\.metadata\.plugins\org.eclipse.jdt.core
-2380175872.index
-3023943531.index
-830295635.index
-2122555019.index
-1943792258.index
-2115423858.index
+INDEX VERSION 1.132+/Volumes/THAWSPACE/code/java-cours/.metadata/.plugins/org.eclipse.jdt.core
+1667821801.index
+2903236662.index
 1865797976.index
+2284689760.index
+4268594669.index
+2951245982.index
+3927879410.index
+1838422867.index
+1116975232.index

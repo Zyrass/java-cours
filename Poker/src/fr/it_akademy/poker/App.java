@@ -20,6 +20,7 @@ import fr.it_akademy.poker.business.Couleur;
 import fr.it_akademy.poker.business.Joueur;
 import fr.it_akademy.poker.business.NomColonneCSV;
 import fr.it_akademy.poker.business.Ville;
+import fr.it_akademy.util.ComparateurDeCarteSurValeur;
 
 public class App {
 
@@ -68,14 +69,22 @@ public class App {
 
 		// Afficher le joueur
 		afficherJoueur(nombreJoueurs);
+		
+		// Triage des cartes
+		trierCartes();
+
+		// Analyser la main des joueurs
+		System.out.println("\n");
+		separation();
+		System.out.println(" ⦿ Etape n°8 - Analyse du contenu des cartes ? ");
+		separation();
+		
+		for (Joueur joueur : joueurs) {
+			System.out.println(analyserMain(joueur));
+		}
 
 		// ajouterVilles();
 		// ajouterJoueurs();
-
-		// for (Joueur joueur : joueurs) {
-		// afficherJoueur(joueur);
-		// System.out.println(analyserMain(joueur));
-		// }
 
 		// Fermeture du scanner pour éviter les fuites de ressources
 		sc.close();
@@ -404,13 +413,108 @@ public class App {
 		System.out.println(" ⦿ Etape n°7 - Affichage " + (nombreDeJoueurs == 1 ? "du " : "des ")
 				+ (nombreDeJoueurs <= 1 ? "" : nombreDeJoueurs) + (nombreDeJoueurs == 1 ? "joueur" : " joueurs"));
 		separation();
-		
-		for ( Joueur joueur: joueurs) {
+
+		for (Joueur joueur : joueurs) {
 			System.out.println(" ✅ - " + (joueur.getPseudo() != null && !joueur.getPseudo().isEmpty()
 					? joueur.getPseudo() + " dispose de ce jeu actuellement : " + joueur.getMain()
 					: joueur.getNom().toUpperCase() + " " + joueur.getPrenom() + " dispose de ce jeu actuellement : "
 							+ joueur.getMain()));
 		}
+	}
+
+	/**
+	 * Cette méthode permet de trier les cartes 
+	 **/
+	private static void trierCartes() {
+		Collections.sort(cartes, new ComparateurDeCarteSurValeur());
+	}
+	
+	/**
+	 * Cette méthode permet d'analyser la main d'un joueur
+	 */
+	private static Combinaison analyserMain(Joueur joueur) {
+
+		int[] occurrences = new int[15];
+
+		// Si j'ai 4 Coeur, 7 Pique, 4 Carreau, 10 Trèfle et un As de Coeur
+		// occurrences[4]=2 signifie une paire de quatre
+		// occurrences[7]=1 signifie une carte avec une valeur égale à 7
+
+		// On parcourt les cartes qui sont dans la main du joueur
+		for (Carte carte : joueur.getMain()) {
+			occurrences[carte.getValeur()]++;
+		}
+
+		System.out.print("Occurences de : " + joueur.getPrenom() + " : ");
+		for (int i = 0; i < occurrences.length; i++) {
+			System.out.print(occurrences[i]);
+		}
+		
+		// Switch pour déterminer si le joueur a obtenu un carré
+		System.out.println("Main de : " + joueur.getPrenom() + " : " + joueur);
+
+		// @Tarek : comment tester la présence d'un carré ?
+		for (int i = 0; i < occurrences.length; i++) {
+			if (occurrences[i] == 4) {
+				return Combinaison.CARRE;
+			}
+			// @Marc : comment tester la présence d'un full ?
+			else if (occurrences[i] == 3) {
+
+				// Le joueur a obtenu un brelan, a t il également une paire ?
+				for (int j = 0; j < occurrences.length; j++) {
+					if (occurrences[j] == 2) {
+						System.out.println(joueur.getPrenom() + " : FULL" );
+						return Combinaison.FULL;
+					}
+				}
+				System.out.println(joueur.getPrenom() + " : BRELAN" );
+				return Combinaison.BRELAN;
+			} else if (occurrences[i] == 2) {
+
+				for (int j = i; j < occurrences.length; j++) {
+					if (occurrences[j] == 2 && j != i) {
+						System.out.println(joueur.getPrenom() + " : DOUBLE PAIRE" );
+						return Combinaison.DOUBLE_PAIRE;
+					}
+				}
+				System.out.println(joueur.getPrenom() + " : PAIRE" );
+				return Combinaison.PAIRE;
+
+			}
+
+			// else if (occurrences[i] == 1 && occurrences[i + 1] == 1 && occurrences[i + 2]
+			// == 1 && occurrences[i + 3] == 1 ) {
+			//
+			// System.out.println("\n\n -------- SUITE \n\n");
+			// return Combinaison.SUITE;
+			//
+			// } else if (occurrences[15] == 1 && occurrences[2] == 1 && occurrences[3] == 1
+			// && occurrences[4] == 1 ) {
+			//
+			// System.out.println("\n\n -------- SUITE \n\n");
+			// return Combinaison.SUITE;
+			// }
+		}
+
+		// On teste la présence d'une suite
+		// exemple : 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+		// On teste la présence d'une couleur
+		Couleur couleurDeLaPremiereCarte = joueur.getMain().get(0).getCouleur();
+		boolean memeCouleur = true;
+
+		for (Carte carte : joueur.getMain()) {
+			if (!carte.getCouleur().equals(couleurDeLaPremiereCarte)) {
+				memeCouleur = false;
+			}
+		}
+		if (memeCouleur) {
+			System.out.println(joueur.getPrenom() + " : COULEUR" );
+			return Combinaison.COULEUR;
+		}
+		System.out.println(joueur.getPrenom() + " : CARTE HAUTE" );
+		return Combinaison.CARTE_HAUTE;
 	}
 
 	/**
@@ -456,93 +560,6 @@ public class App {
 			System.out.println(ville);
 		}
 
-	}
-
-	/**
-	 * Cette méthode permet d'analyser la main d'un joueur
-	 */
-	private static Combinaison analyserMain(Joueur joueur) {
-
-		int[] occurrences = new int[15];
-
-		// Si j'ai 4 Coeur, 7 Pique, 4 Carreau, 10 Trèfle et un As de Coeur
-		// occurrences[4]=2 signifie une paire de quatre
-		// occurrences[7]=1 signifie une carte avec une valeur égale à 7
-
-		// On parcourt les cartes qui sont dans la main du joueur
-		for (Carte carte : joueur.getMain()) {
-			occurrences[carte.getValeur()]++;
-		}
-
-		for (int i = 0; i < occurrences.length; i++) {
-			System.out.print(occurrences[i]);
-		}
-
-		System.out.println();
-
-		// Switch pour déterminer si le joueur a obtenu un carré
-		System.out.println(joueur);
-
-		// @Tarek : comment tester la présence d'un carré ?
-		for (int i = 0; i < occurrences.length; i++) {
-			if (occurrences[i] == 4) {
-				return Combinaison.CARRE;
-			}
-			// @Marc : comment tester la présence d'un full ?
-			else if (occurrences[i] == 3) {
-
-				// Le joueur a obtenu un brelan, a t il également une paire ?
-				for (int j = 0; j < occurrences.length; j++) {
-					if (occurrences[j] == 2) {
-						System.out.println("\n\n -------- FULL \n\n");
-						return Combinaison.FULL;
-					}
-				}
-				System.out.println("\n\n -------- BRELAN \n\n");
-				return Combinaison.BRELAN;
-			} else if (occurrences[i] == 2) {
-
-				for (int j = i; j < occurrences.length; j++) {
-					if (occurrences[j] == 2 && j != i) {
-						System.out.println("\n\n -------- DOUBLE_PAIRE \n\n");
-						return Combinaison.DOUBLE_PAIRE;
-					}
-				}
-				System.out.println("\n\n -------- PAIRE \n\n");
-				return Combinaison.PAIRE;
-
-			}
-
-			// else if (occurrences[i] == 1 && occurrences[i + 1] == 1 && occurrences[i + 2]
-			// == 1 && occurrences[i + 3] == 1 ) {
-			//
-			// System.out.println("\n\n -------- SUITE \n\n");
-			// return Combinaison.SUITE;
-			//
-			// } else if (occurrences[15] == 1 && occurrences[2] == 1 && occurrences[3] == 1
-			// && occurrences[4] == 1 ) {
-			//
-			// System.out.println("\n\n -------- SUITE \n\n");
-			// return Combinaison.SUITE;
-			// }
-		}
-
-		// On teste la présence d'une suite
-		// exemple : 0 0 0 0 0 1 1 1 1 1 0 0 0
-
-		// On teste la présence d'une couleur
-		Couleur couleurDeLaPremiereCarte = joueur.getMain().get(0).getCouleur();
-		boolean memeCouleur = true;
-
-		for (Carte carte : joueur.getMain()) {
-			if (!carte.getCouleur().equals(couleurDeLaPremiereCarte)) {
-				memeCouleur = false;
-			}
-		}
-		if (memeCouleur) {
-			return Combinaison.COULEUR;
-		}
-		return Combinaison.CARTE_HAUTE;
 	}
 
 }

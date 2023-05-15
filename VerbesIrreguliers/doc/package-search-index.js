@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.it_akademy.business.alain"},{"l":"fr.it_akademy.verbes_irreguliers.alain"}];updateSearchResults();
